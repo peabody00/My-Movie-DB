@@ -46,5 +46,5 @@ function App() {
 //   this.fetchMovieID(datum.id)
 // }.bind(this)); // END Instantiate the Typeahead UI
 
- 
+
 export default App;
