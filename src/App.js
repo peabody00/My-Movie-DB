@@ -1,6 +1,7 @@
 import './App.css';
 import MovieCard from './components/movieCard'
 import Search from './components/search'
+import UserLogin from './components/userLogin'
 
 // USE CODE IN LOG TO ADD API KEY TO FETCH
 // console.log(process.env.REACT_APP_TMDB_KEY)
@@ -9,6 +10,7 @@ function App() {
   
   return (
     <div className="App">
+      <UserLogin />
       <Search />
       <MovieCard />
     </div>
@@ -16,7 +18,6 @@ function App() {
 
   
 }
-
 // let suggests = new Bloodhound({
 //   datumTokenizer: function(datum) {
 //     return Bloodhound.tokenizers.whitespace(datum.value);
@@ -45,6 +46,7 @@ function App() {
 // }, {source: suggests.ttAdapter()}).on('typeahead:selected', function(obj, datum) {
 //   this.fetchMovieID(datum.id)
 // }.bind(this)); // END Instantiate the Typeahead UI
+
 
 
 export default App;

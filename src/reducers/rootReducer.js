@@ -1,14 +1,13 @@
 import { combineReducers } from "redux"
 import { moviesReducer } from "./moviesReducer"
 import { usersmoviesReducer } from "./usersmoviesReducer"
-import { usersReducer } from "./usersReducer"
+import { currentUserReducer } from "./currentUserReducer"
 
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
     movies: moviesReducer,
     usersmovies: usersmoviesReducer,
-    users: usersReducer
+    user: currentUserReducer
 })
 
-// I GET AN ERROR IF I DON'T HAVE THIS LINE
 export default rootReducer

@@ -4,12 +4,15 @@ import { fetchMovie } from "../actions/movieActions"
 const TMDBLogo = "./src/tmdb.svg"
 
 class Search extends Component {
+    constructor() {
+        super()
+        this.state = {
+            title: ''
+        }
+    }
+    
     componentDidMount() {
         this.props.fetchMovie()
-    }
-
-    state = {
-        title: ''
     }
 
     handleChange = event => {
@@ -55,5 +58,9 @@ class Search extends Component {
         </div>
         );
     }
+
+    
+
+
 }
 export default connect(null, { fetchMovie })(Search)
