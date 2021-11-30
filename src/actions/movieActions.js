@@ -1,8 +1,8 @@
 const apiURL = 'https://api.themoviedb.org/3/movie/'
 // const movie = Math.floor(Math.random()*899999+100000);
-const movie = 157336
+// const movie = 157336
 
-export function fetchMovie() {
+export function fetchMovie(movie) {
     return (dispatch) => {
         fetch(`${apiURL}${movie}?api_key=${process.env.REACT_APP_TMDB_KEY}`)
         .then((resp) => resp.json())

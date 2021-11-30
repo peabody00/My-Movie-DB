@@ -2,6 +2,11 @@ import './App.css';
 import MovieCard from './components/movieCard'
 import Search from './components/search'
 import UserLogin from './components/userLogin'
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom'
+import Navbar from './components/navbar'
+import { Fragment } from 'react'
+import AutoSearch from './components/autosearch';
+import UserCreate from './components/userCreate'
 
 // USE CODE IN LOG TO ADD API KEY TO FETCH
 // console.log(process.env.REACT_APP_TMDB_KEY)
@@ -9,44 +14,21 @@ import UserLogin from './components/userLogin'
 function App() {
   
   return (
-    <div className="App">
-      <UserLogin />
-      <Search />
-      <MovieCard />
-    </div>
+    <Fragment>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          {/* <Route exact path='/' component={ Search } /> */}
+          <Route exact path='/' component={ AutoSearch } />
+          <Route exact path='/login' render={(props) => <UserLogin {...props} />} />
+          <Route exact path='/users' render={(props) => <UserCreate {...props} />} />
+          <Route exact path='/movie' component={ MovieCard } />
+        </Switch>
+      </div>
+    </Fragment>
   );
 
   
 }
-// let suggests = new Bloodhound({
-//   datumTokenizer: function(datum) {
-//     return Bloodhound.tokenizers.whitespace(datum.value);
-//   },
-//   queryTokenizer: Bloodhound.tokenizers.whitespace,
-//   remote: {
-//     url: `https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=${process.env.REACT_APP_TMDB_KEY}`,
-//     filter: function(movies) {
-//       // Map the remote source JSON array to a JavaScript object array
-//       return $.map(movies.results, function(movie) {
-//         return {
-//           value: movie.original_title, // search original title
-//           id: movie.id // get ID of movie simultaniously
-//         };
-//       });
-//     } // end filter
-//   } // end remote
-// }); // end new Bloodhound
 
-// suggests.initialize(); // initialise bloodhound suggestion engine
-
-// $('.typeahead').typeahead({
-//   hint: true,
-//   highlight: true,
-//   minLength: 2
-// }, {source: suggests.ttAdapter()}).on('typeahead:selected', function(obj, datum) {
-//   this.fetchMovieID(datum.id)
-// }.bind(this)); // END Instantiate the Typeahead UI
-
-
-
-export default App;
+export default withRouter(App);

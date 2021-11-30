@@ -2,8 +2,9 @@ import React, { Component } from "react"
 import { userLogin } from '../actions/userLoginAction'
 import { connect } from 'react-redux'
 
+
 class UserLogin extends Component {
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
             username: '',
@@ -20,14 +21,15 @@ class UserLogin extends Component {
     handleSubmit = event => {
         event.preventDefault()
         this.props.userLogin({user: this.state})
+        this.props.history.push('/')
     }
+
 
     render() {
         return (
             <div className="login-wrapper">
             <h1>Please Log In</h1>
-            <form
-            onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 <label>
                 <p>Username</p>
                 <input type="text"

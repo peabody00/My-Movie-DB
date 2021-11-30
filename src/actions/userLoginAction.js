@@ -1,4 +1,8 @@
-import { setCurrentUser } from './setCurrentUser'
+// import { setCurrentUser } from './setCurrentUser'
+
+const setCurrentUser = (userData) => {
+    return {type: "SET_CURRENT_USER", userData: userData}
+}
 
 export function userLogin(loginData) {
         return (dispatch) => {
@@ -24,3 +28,36 @@ export function userLogin(loginData) {
         })
     }
 }
+
+export function userCreate(loginData) {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/users`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+            },
+            body: JSON.stringify( loginData )
+        })
+        .then(resp => resp.json())
+        .then(userData => {
+            if (userData.error) {
+                alert(userData.error)
+            } else {
+                alert(`User ${userData.user.username} successfully created and logged in`)
+                dispatch(setCurrentUser(userData))
+            }
+        })
+        .catch(error => {
+            alert(`Error: ${error}`)
+        })
+    }
+
+}
+
+export const clearCurrentUser = () => {
+    return {type: "CLEAR_CURRENT_USER"}
+}
+
+
+
