@@ -1,6 +1,7 @@
 // bootstrap
-$icon-font-path: "/fonts/bootstrap/";
-@import "/node_modules/bootstrap/scss/bootstrap.scss";
+// $icon-font-path: "/fonts/bootstrap/";
+// @import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
 
 // helpers
 @import "helpers/_variables.scss";

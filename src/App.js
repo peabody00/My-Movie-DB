@@ -19,7 +19,7 @@ function App() {
         <Navbar />
         <Switch>
           {/* <Route exact path='/' component={ Search } /> */}
-          <Route exact path='/' component={ AutoSearch } />
+          {/* <Route exact path='/' component={ AutoSearch } /> */}
           <Route exact path='/login' render={(props) => <UserLogin {...props} />} />
           <Route exact path='/users' render={(props) => <UserCreate {...props} />} />
           <Route exact path='/movie' component={ MovieCard } />

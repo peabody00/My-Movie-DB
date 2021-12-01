@@ -53,7 +53,6 @@ class AutoSearch extends React.Component {
     onSuggestionsFetchRequested = ({ value }) => {
         this.getSuggestions(value)
             .then(data => {
-                console.log(data.results)
                 this.setState({
                     suggestions: data.results
                 });

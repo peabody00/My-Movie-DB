@@ -1,9 +1,12 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :update, :destroy]
+  skip_before_action :authorized, only: [:index]
 
   # GET /movies
   def index
     @movies = Movie.all
+    # byebug
+    # @movies = Movie.find_by(moveID: movie_params)
 
     render json: @movies
   end

@@ -8,21 +8,21 @@ const backdropURL = 'https://image.tmdb.org/t/p/original'
 
 class MovieCard extends Component {
         
-    componentDidMount() {
+    componentDidUpdate() {
         document.body.style.backgroundImage = `url(${backdropURL}${this.props.backdrop})`
     }
 
     render() {
         return (
-            <div classname="col-xs-12 cardcont nopadding">
-                <div classname="meta-data-container col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5">
+            <div className="col-xs-12 cardcont nopadding">
+                <div className="meta-data-container col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5">
                     <h1>{this.props.title}</h1>
-                    <span classname="tagline">{this.props.tagline}</span>
+                    <span className="tagline">{this.props.tagline}</span>
                     <p>{this.props.overview}</p>
-                    <div classname="additonal-details">
-                        <span classname="genre-list">genres</span>
-                        <span classname="production-list">production list</span>
-                        <div classname="row nopadding release-details">
+                    <div className="additonal-details">
+                        <span className="genre-list">{nestedDataToString(this.props.genres)}</span>
+                        <span className="production-list">{nestedDataToString(this.props.production_companies)}</span>
+                        <div className="row nopadding release-details">
                             <div className="col-xs-6"> Original Release: <span className="meta-data">{this.props.release_date}</span></div>
                             <div className="col-xs-6"> Running Time: <span className="meta-data">{this.props.runtime} mins</span> </div>
                             <div className="col-xs-6"> Box Office: <span className="meta-data"><NumberFormat value={this.props.revenue} displayType={'text'} thousandSeparator={true} prefix={'$'} /></span></div>
@@ -30,13 +30,28 @@ class MovieCard extends Component {
                         </div>
                     </div>
                 </div>
-                    <div classname="poster-container nopadding col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 ">
-                        <img id="postertest" classname="poster" src={`${posterURL}${this.props.poster}`} alt={`${this.props.title}`}/>
+                    <div className="poster-container nopadding col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 ">
+                        <img id="postertest" className="poster" src={`${posterURL}${this.props.poster}`} alt={`${this.props.title}`}/>
                     </div>
+                <div>
                     <UserMovie />
+                </div>
             </div>
+            
         )
     }
+}
+
+function nestedDataToString(nestedData) {
+    let nestedArray = [],
+        resultString;
+    if(nestedData !== undefined){
+        nestedData.forEach(function(item){
+            nestedArray.push(item.name);
+        });
+    }
+    resultString = nestedArray.join(', '); // array to string
+    return resultString;
 }
 
 const mapStateToProps = (state) => {
