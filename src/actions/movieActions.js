@@ -12,15 +12,23 @@ export function fetchMovie(movie) {
     };
 }
 
-// export function fetchMovie(movie) {
-//     return (dispatch) => {
-//         fetch(`http://localhost:3000/movies/`)
-//         .then(resp => resp.json())
-//         .then(movieData => {
-//             console.log(movieData)
-//         })
-//     }
-// }
+export function saveMovie(movie, token) {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/movies/`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify( movie )
+        })
+        .then(resp => resp.json())
+        .then(movieData => {
+            console.log(movieData)
+        })
+    }
+}
 
 
 // I NEED TO MAKE A CONDITIONAL SOMEWHERE FOR THE INITIAL RANDOM MOVIE THAT IS DISPLAYED TO MAKE 

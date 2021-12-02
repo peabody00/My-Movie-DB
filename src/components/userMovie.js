@@ -11,19 +11,40 @@ import { BsHandThumbsUp } from 'react-icons/bs'
 import { BsHandThumbsUpFill } from 'react-icons/bs'
 import { BsHandThumbsDown } from 'react-icons/bs'
 import { BsHandThumbsDownFill } from 'react-icons/bs'
+import { saveMovie } from '../actions/movieActions'
 
 
 
 class UserMovie extends Component {
+    // NEXT STEP CHECK MOVIE ALREADY EXISTS AND THAT MOVIE IS ALREADY ASSOCIATED WITH THE MOVIE, SEPARATE FUNCTIONS
+    // if this movie is already in the db (rails API by checking movieID), return that movie, else return null, if it returns make an update
 
     watched = () => {
+        const token = localStorage.getItem('jwt')
+        const data = {movie: { 
+            ...this.props.movie,
+            movieID: this.props.movie.id,
+            user_movies_attributes:[
+                { watched: true, user_id: this.props.user.id }
+            ]}}
+
+        this.props.saveMovie(data, token)
+        
 
     }
+
 
     render() {
         return (
         <div>
-            Watched: <span id="watch" onClick={this.watched}><AiOutlineEye /></span>
+            Watched: 
+            {this.props.watched ? (
+                    <span id="watch" onClick={this.watched}><AiFillEye /></span>
+            ):(
+                    <span id="watch" onClick={this.watched}><AiOutlineEye /></span>
+            )}
+
+
             Add to Watchlist: <RiFileList2Line />
             User Rating: <AiOutlineStar />
             Like/Dislike: <BsHandThumbsUp /> <BsHandThumbsDown />
@@ -32,4 +53,12 @@ class UserMovie extends Component {
         )
     }
 }
-export default connect(null, { fetchUserMovie })(UserMovie)
+
+const mapStateToProps = (state) => {
+    return{
+        usermovie: state.usersmovies,
+        movie: state.movies,
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, { saveMovie })(UserMovie)

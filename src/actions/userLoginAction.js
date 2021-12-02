@@ -1,6 +1,6 @@
 // import { setCurrentUser } from './setCurrentUser'
 
-const setCurrentUser = (userData) => {
+export function setCurrentUser(userData) {
     return {type: "SET_CURRENT_USER", userData: userData}
 }
 

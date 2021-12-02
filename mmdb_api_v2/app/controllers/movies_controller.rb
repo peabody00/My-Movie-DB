@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :update, :destroy]
-  skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index, :create]
 
   # GET /movies
   def index
@@ -49,6 +49,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:movieID, :title, :tagline, :overview, :poster_path, :production_companies, :genres, :release_date, :vote_average, :runtime, :revenue, :backdrop)
+      params.require(:movie).permit(:movieID, :title, :tagline, :overview, :poster_path, :production_companies, :genres, :release_date, :vote_average, :runtime, :revenue, :backdrop, :user_movies_attributes => [:watched, :user_id, :like_dislike, :user_rating, :watch_list])
     end
 end
