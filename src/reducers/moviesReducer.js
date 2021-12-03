@@ -1,4 +1,4 @@
-export const moviesReducer = (state = {
+const initialState = {
     movieID: 862,
     title: "Toy Story",
     tagline: "",
@@ -10,15 +10,12 @@ export const moviesReducer = (state = {
     vote_average: 8,
     runtime: 81,
     backdrop: "/3Rfvhy1Nl6sSGJwyjb0QiZzZYlB.jpg"
-}, action) => {
+}
+
+export const moviesReducer = (state = initialState, action) => {
     switch(action.type) {
         case 'SEARCH_MOVIES':
             return action.payload;
-        // case 'RANDOM_MOVIE':
-        //     if (action.payload.adult===false)
-        //         return action.payload
-        //     else
-
         default: 
             return state
     }    

@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :update, :destroy]
-  skip_before_action :authorized, only: [:index, :create]
+  skip_before_action :authorized, only: [:index, :create, :find_movie]
 
   # GET /movies
   def index
@@ -9,6 +9,16 @@ class MoviesController < ApplicationController
     # @movies = Movie.find_by(moveID: movie_params)
 
     render json: @movies
+  end
+
+  def find_movie
+    @movie = Movie.find_by(movieID: params[:movieID].to_i)
+    if @movie
+      render json: @movie
+      # include: [:user_movies]
+    else
+      render json: {message: "Movie not found."}
+    end
   end
 
   # GET /movies/1

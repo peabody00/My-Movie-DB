@@ -41,17 +41,17 @@ class MovieCard extends Component {
         )
     }
 }
-
+// Is it possible to put this logic into the reducer?
 function nestedDataToString(nestedData) {
     let nestedArray = [],
-        resultString;
+        resultString
     if(nestedData !== undefined){
         nestedData.forEach(function(item){
-            nestedArray.push(item.name);
-        });
+            nestedArray.push(item.name)
+        })
     }
-    resultString = nestedArray.join(', '); // array to string
-    return resultString;
+    resultString = nestedArray.join(', ')
+    return resultString
 }
 
 const mapStateToprops = (state) => {

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :movies
   resources :users
   post '/login', to: 'auth#create'
+  get '/find_movie/:movieID', to: 'movies#find_movie'
 
   resources :users do
     resources :usermovies

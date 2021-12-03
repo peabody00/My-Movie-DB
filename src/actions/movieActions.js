@@ -2,8 +2,6 @@ const apiURL = 'https://api.themoviedb.org/3/movie/'
 // const movie = Math.floor(Math.random()*899999+100000);
 // const movie = 157336
 
-//Need logic to serach rails api before going to TMdB
-
 export function fetchMovie(movie) {
     return (dispatch) => {
         fetch(`${apiURL}${movie}?api_key=${process.env.REACT_APP_TMDB_KEY}`)
@@ -28,6 +26,16 @@ export function saveMovie(movie, token) {
             console.log(movieData)
         })
     }
+}
+
+export function searchApiMovie(movie) {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/find_movie/${movie}`)
+        .then((resp) => resp.json())
+        .then((movie) => 
+        console.log(movie)
+        );
+    };
 }
 
 
