@@ -11,16 +11,12 @@ import { setCurrentUser } from './actions/userLoginAction'
 import { connect } from 'react-redux'
 import React, { Component } from "react"
 
-// USE CODE IN LOG TO ADD API KEY TO FETCH
-// console.log(process.env.REACT_APP_TMDB_KEY)
-
 class App extends Component {
 
   componentDidMount() {
     let token = localStorage.getItem('jwt')
     let userID = localStorage.getItem('user_id')
     if (token) {
-      // make a fetch call to your backend to get the user (using the token)
       fetch(`http://localhost:3000/users/${userID}`, {
         headers: { "Authentication": `Bearer ${token}` }
       })

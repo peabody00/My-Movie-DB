@@ -1,17 +1,20 @@
 .react-autosuggest__suggestions-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    overflow: auto;
-    max-height: 400px;
-  }
-  
-  .sugg-option {
-    display: flex;
-  }
-  .icon-wrap img {
-    width: 50px;
-    margin-right: 10px;
-  }
-  .sugg-option .name {
-  }
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: auto;
+  max-height: 400px;
+}
+
+.icon-wrap img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.sugg-option {
+  display: flex;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: rgb(206, 219, 255);
+}

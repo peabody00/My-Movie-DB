@@ -28,7 +28,7 @@ class UserLogin extends Component {
     render() {
         return (
             <div className="login-wrapper">
-            <h1>Please Log In</h1>
+            <h2>Please Log In</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>
                 <p>Username</p>
@@ -45,7 +45,9 @@ class UserLogin extends Component {
                 onChange={this.handleChange} />
                 </label>
                 <div>
+                <p>
                 <button type="submit">Submit</button>
+                </p>
                 </div>
             </form>
             </div>

@@ -1,10 +1,11 @@
-// server.autosuggest.js
 import React from 'react'
-import Autosuggest from 'react-autosuggest'
 import '../autosuggest.css'
+import Autosuggest from 'react-autosuggest'
 import { fetchMovie } from '../actions/movieActions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+const posterURL = 'https://image.tmdb.org/t/p/w500'
 
 class AutoSearch extends React.Component {
     constructor() {
@@ -32,7 +33,7 @@ class AutoSearch extends React.Component {
     // Render Each Option
     renderSuggestion = suggestion => (
         <span className="sugg-option">
-            {/* <span className="icon-wrap"><img src={suggestion.Poster} alt=""/></span> */}
+            <span className="icon-wrap"><img src={`${posterURL}${suggestion.poster_path}`} alt=""/></span>
             <span className="name">
                 <div id={suggestion.id}
                 onClick={() => this.props.fetchMovie(suggestion.id)} >

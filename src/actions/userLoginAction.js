@@ -1,5 +1,3 @@
-// import { setCurrentUser } from './setCurrentUser'
-
 export function setCurrentUser(userData) {
     return {type: "SET_CURRENT_USER", userData: userData}
 }

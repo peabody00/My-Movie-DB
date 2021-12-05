@@ -42,7 +42,7 @@ class UserCreate extends Component {
     render () {
         return(
             <div className="login-wrapper">
-            <h1>Please Create Account</h1>
+            <h2>Please Create Account</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>
                 <p>Username</p>
@@ -66,7 +66,9 @@ class UserCreate extends Component {
                 onChange={this.handleChange} />
                 </label>
                 <div>
+                <p>
                 <button type="submit">Submit</button>
+                </p>
                 </div>
             </form>
             </div>

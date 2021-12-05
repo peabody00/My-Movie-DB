@@ -40,7 +40,3 @@ export function searchApiMovie(movie) {
         );
     };
 }
-
-
-// I NEED TO MAKE A CONDITIONAL SOMEWHERE FOR THE INITIAL RANDOM MOVIE THAT IS DISPLAYED TO MAKE 
-// SURE THAT ADULT FLAG IS FALSE
