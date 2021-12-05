@@ -28,13 +28,18 @@ class MoviesController < ApplicationController
 
   # POST /movies
   def create
-    @movie = Movie.new(movie_params)
-
-    if @movie.save
-      render json: @movie, status: :created, location: @movie
+    @movie = Movie.find_by(movieID: params[:movieID].to_i)
+    if @movie
+      # create or update the association
+      render json: {message: "Movie already created"}
     else
-      render json: @movie.errors, status: :unprocessable_entity
-    end
+      @movie = Movie.new(movie_params)
+      if @movie.save
+        render json: @movie, include: [:user_movies], status: :created, location: @movie
+      else
+        render json: @movie.errors, status: :unprocessable_entity
+      end
+    end      
   end
 
   # PATCH/PUT /movies/1

@@ -1,5 +1,6 @@
 class UserMoviesController < ApplicationController
   before_action :set_user_movie, only: [:show, :update, :destroy]
+  skip_before_action :authorized, only: [:update]
 
   # GET /user_movies
   def index
@@ -26,6 +27,9 @@ class UserMoviesController < ApplicationController
 
   # PATCH/PUT /user_movies/1
   def update
+    @user_movie = UserMovie.find(params['user_movie']['id'])
+    puts @user_movie
+    puts user_movie_params
     if @user_movie.update(user_movie_params)
       render json: @user_movie
     else

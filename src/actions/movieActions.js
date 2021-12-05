@@ -1,3 +1,5 @@
+import { updateUserMovie }from './userMovieActions'
+
 const apiURL = 'https://api.themoviedb.org/3/movie/'
 // const movie = Math.floor(Math.random()*899999+100000);
 // const movie = 157336
@@ -10,7 +12,7 @@ export function fetchMovie(movie) {
     };
 }
 
-export function saveMovie(movie, token) {
+export function saveMovie(movie, token, user_id) {
     return (dispatch) => {
         fetch(`http://localhost:3000/movies/`, {
             method: 'POST',
@@ -23,7 +25,8 @@ export function saveMovie(movie, token) {
         })
         .then(resp => resp.json())
         .then(movieData => {
-            console.log(movieData)
+            let usermovie = movieData.user_movies.find(usermovie => usermovie.user_id === user_id)
+            dispatch(updateUserMovie(usermovie))
         })
     }
 }

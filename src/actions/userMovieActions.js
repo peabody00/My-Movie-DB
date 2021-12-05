@@ -6,33 +6,32 @@
 //     };
 // }
 
-const updateUserMovie = (userMovieData) => {
+export function defaultUserMovie() {
+    return {type: 'DEFAULT_USERMOVIE'}
+}
+
+export function updateUserMovie(userMovieData) {
     return {type: 'UPDATE_USERMOVIE', userMovieData: userMovieData}
 }
 
-export function userMovieUpdate(loginData) {
-    //     return (dispatch) => {
-    //     fetch(`http://localhost:3000/${userID}/usermovie`, {
-    //         method: 'POST',
-    //         headers: {
-    //         'Content-Type': 'application/json',
-    //         Accept: 'application/json'
-    //         },
-    //         body: JSON.stringify( loginData )
-    //     })
-    //     .then(resp => resp.json())
-    //     .then(userData => {
-    //         if (userData.message) {
-    //             alert(userData.message)
-    //         } else {
-    //             alert(`User ${userData.user.username} successfully logged in`)
-    //             dispatch(setCurrentUser(userData))
-    //         }
-    //     })
-    //     .catch(error => {
-    //         alert(`Error: ${error}`)
-    //     })
-    // }
+export function userMovieUpdate(userMovieData) {
+        return (dispatch) => {
+        fetch(`http://localhost:3000/users/${userMovieData.user_movie.userID}/user_movies/${userMovieData.user_movie.id}`, {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+            },
+            body: JSON.stringify( userMovieData )
+        })
+        .then(resp => resp.json())
+        .then(data=>  {
+            console.log(data)
+            dispatch(updateUserMovie(data))})
+        .catch(error => {
+            alert(`Error: ${error}`)
+        })
+    }
 }
 
 const getUserMovie = () => {

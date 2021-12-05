@@ -12,6 +12,9 @@ export const usersmoviesReducer = (state = initialState, action) => {
         case 'GET_USERSMOVIE':
             return action.payload
         case 'UPDATE_USERMOVIE':
+            return action.userMovieData
+        case 'DEFAULT_USERMOVIE':
+            return initialState
         default: 
             return state
     }    
