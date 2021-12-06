@@ -10,6 +10,8 @@ import UserCreate from './components/userCreate'
 import { setCurrentUser } from './actions/userLoginAction'
 import { connect } from 'react-redux'
 import React, { Component } from "react"
+import Watched from './components/watched'
+import Watchlist from './components/watchlist'
 
 class App extends Component {
 
@@ -37,6 +39,8 @@ class App extends Component {
           <Switch>
             {/* <Route exact path='/' component={ Search } /> */}
             {/* <Route exact path='/' component={ AutoSearch } /> */}
+            <Route exact path='/watched' component={ Watched }  />
+            <Route exact path='/watchlist' component={ Watchlist }  />
             <Route exact path='/login' render={(props) => <UserLogin {...props} />} />
             <Route exact path='/users' render={(props) => <UserCreate {...props} />} />
             <Route exact path='/movie' component={ MovieCard } />

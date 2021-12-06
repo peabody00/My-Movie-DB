@@ -2,6 +2,10 @@ export function setCurrentUser(userData) {
     return {type: "SET_CURRENT_USER", userData: userData}
 }
 
+export function updateUserStore(userData) {
+    return {type: "UPDATE_CURRENT_USER_STORE", userData: userData}
+}
+
 export function userLogin(loginData) {
         return (dispatch) => {
         fetch(`http://localhost:3000/login`, {

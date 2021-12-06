@@ -18,6 +18,8 @@ class Navbar extends Component {
                             Logout
                         </button>
                         </p>
+                    <Link to="/watched">Watched Movie List</Link><br/>
+                    <Link to="/watchlist">To Watch List</Link>
                     </div>
                 ):(
                     <div> 

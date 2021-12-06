@@ -32,15 +32,17 @@ class AutoSearch extends React.Component {
 
     // Render Each Option
     renderSuggestion = suggestion => (
-        <span className="sugg-option">
-            <span className="icon-wrap"><img src={`${posterURL}${suggestion.poster_path}`} alt=""/></span>
-            <span className="name">
-                <div id={suggestion.id}
-                onClick={() => this.props.fetchMovie(suggestion.id)} >
-                    <Link to="/movie">{suggestion.title}</Link>
-                </div>
+        <div className="search-div">
+            <span className="sugg-option">
+                <span className="icon-wrap"><img src={`${posterURL}${suggestion.poster_path}`} alt=""/></span>
+                <span className="name">
+                    <div id={suggestion.id}
+                    onClick={() => this.props.fetchMovie(suggestion.id)} >
+                        <Link to="/movie">{suggestion.title}</Link>
+                    </div>
+                </span>
             </span>
-        </span>
+        </div>
     );
 
     // OnChange event handler

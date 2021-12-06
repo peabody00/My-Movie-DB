@@ -1,4 +1,5 @@
-import { updateUserMovie }from './userMovieActions'
+import { updateUserMovie } from './userMovieActions'
+import { updateUserStore } from './userLoginAction'
 
 const apiURL = 'https://api.themoviedb.org/3/movie/'
 // const movie = Math.floor(Math.random()*899999+100000);
@@ -27,6 +28,7 @@ export function saveMovie(movie, token, user_id) {
         .then(movieData => {
             let usermovie = movieData.user_movies.find(usermovie => usermovie.user_id === user_id)
             dispatch(updateUserMovie(usermovie))
+            // dispatch([updateUserMovie(usermovie),updateUserStore(usermovie)])
         })
     }
 }

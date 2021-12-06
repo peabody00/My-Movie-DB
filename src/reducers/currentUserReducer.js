@@ -8,6 +8,12 @@ export const currentUserReducer = (currentUser = null, action) => {
         case 'CLEAR_CURRENT_USER':
             localStorage.clear()
             return null
+        case 'UPDATE_CURRENT_USER_STORE':
+            let user = {
+                ...currentUser,
+                movies: currentUser.movies.push(action.userData)
+            }
+            return user
         default:
         return currentUser
     }
