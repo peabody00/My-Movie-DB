@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# My Movie Database
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to My Movie Database, a simple website that allows people to search movies.  A user can signup for an account and save movies they have watched as well as create a list of movies they want to watch.  This simple webpage is my Module 5 React project for Flatiron School.  
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To run this application first clone the code from GitHub.  It also uses The Movie Database API as the movie search engine.  An API key is required to use the search.  [Here](https://developers.themoviedb.org/3/getting-started/introduction) is information on how to sign up for an API key.
 
-### `yarn start`
+After cloning the repository run `npm install` to install any required packages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Navigate to the `/mmdb_api_v2/` folder.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Run `rails db:migrate` to create the tables and database.
 
-### `yarn test`
+If you want to use some starter data, run `rails db:seed`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run `rails s` from the prompt to start the local webserver.  The webserver is needed to create new users and save the watch list and to watch list.
 
-### `yarn build`
+Navigate back to `/my-movie-db/` project folder.  Run `npm start` to start web app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This is a simple website that allows users to to search movies.  The search bar works with the React Autosuggest to bring up search recommendations as the user types.  Once the movie has been found it can be clicked on to load movie data.  The site can be used without an account to search movies and read information about about the movies including date it was released, descirption, popularity, and so on.  If a user wants they can also create an account which gives them the added features of creating a watch list of movies they have seen or a list of movies that they want to watch.  There is a link to create a new user as well as a login for returning users.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This program is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
