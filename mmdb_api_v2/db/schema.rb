@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_145440) do
 
   create_table "user_movies", force: :cascade do |t|
     t.integer "user_rating"
-    t.string "like_dislike"
+    t.boolean "like_dislike"
     t.boolean "watched"
     t.boolean "watch_list"
     t.integer "user_id"

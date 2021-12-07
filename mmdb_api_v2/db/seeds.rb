@@ -19,4 +19,4 @@ Movie.create(
     vote_average: 8,
     runtime: 81,
     backdrop: "/3Rfvhy1Nl6sSGJwyjb0QiZzZYlB.jpg")
-UserMovie.create(user_rating: 5, like_dislike: "like", watched: true, watch_list: false, user_id: 1, movie_id: 1)
+UserMovie.create(user_rating: 5, like_dislike: true, watched: true, watch_list: false, user_id: 1, movie_id: 1)

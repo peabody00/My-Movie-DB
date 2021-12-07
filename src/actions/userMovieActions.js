@@ -18,7 +18,6 @@ export function userMovieUpdate(userMovieData) {
         })
         .then(resp => resp.json())
         .then(data=>  {
-            console.log(data)
             dispatch(updateUserMovie(data))})
         .catch(error => {
             alert(`Error: ${error}`)
