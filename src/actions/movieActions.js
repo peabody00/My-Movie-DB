@@ -1,5 +1,5 @@
 import { updateUserMovie } from './userMovieActions'
-import { updateUserStore } from './userLoginAction'
+// import { updateUserStore } from './userLoginAction'
 
 const apiURL = 'https://api.themoviedb.org/3/movie/'
 // const movie = Math.floor(Math.random()*899999+100000);

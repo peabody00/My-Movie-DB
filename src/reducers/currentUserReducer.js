@@ -5,6 +5,11 @@ export const currentUserReducer = (currentUser = null, action) => {
             localStorage.setItem('username', action.userData.user.username)
             localStorage.setItem('jwt', action.userData.jwt)
             return { ...action.userData.user }
+        case 'RELOGIN_USER':
+            localStorage.setItem('user_id', action.userData.user.user.id)
+            localStorage.setItem('username', action.userData.user.user.username)
+            localStorage.setItem('jwt', action.userData.user.jwt)
+            return { ...action.userData.user.user }
         case 'CLEAR_CURRENT_USER':
             localStorage.clear()
             return null

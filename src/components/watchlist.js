@@ -9,7 +9,7 @@ displayMovies(user) {
     return toWatchList.map(usermovie => {
         const movie = user.movies.find(singleMovie => singleMovie.id === usermovie.movie_id)
         return (
-            <div
+            <div key={movie.movieID}
                 onClick={() => this.props.fetchMovie(movie.movieID)} >
                 <Link to="/movie">{movie.title}</Link>
             </div>
@@ -20,7 +20,7 @@ displayMovies(user) {
         return(
             <div>
             <h3>To Watch List</h3>
-            {this.displayMovies(this.props.user)}
+            {this.props.user ? (this.displayMovies(this.props.user)):(null)}
             </div>
         )
     }

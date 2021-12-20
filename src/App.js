@@ -1,13 +1,13 @@
 import './App.css';
 import MovieCard from './components/movieCard'
-import Search from './components/search'
+// import Search from './components/search'
 import UserLogin from './components/userLogin'
-import { Switch, Route, withRouter, Redirect } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import Navbar from './components/navbar'
 import { Fragment } from 'react'
-import AutoSearch from './components/autosearch';
+// import AutoSearch from './components/autosearch';
 import UserCreate from './components/userCreate'
-import { setCurrentUser } from './actions/userLoginAction'
+import { setCurrentUser, reloginUser } from './actions/userLoginAction'
 import { connect } from 'react-redux'
 import React, { Component } from "react"
 import Watched from './components/watched'
@@ -24,7 +24,7 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(result => {
-        this.props.setCurrentUser({
+        this.props.reloginUser({
         user: result
         })
       })
@@ -51,4 +51,4 @@ class App extends Component {
   }  
 }
 
-export default withRouter(connect(null, { setCurrentUser })(App));
+export default withRouter(connect(null, { setCurrentUser, reloginUser })(App));

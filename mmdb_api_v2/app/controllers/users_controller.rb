@@ -11,7 +11,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    @token = encode_token(user_id: @user.id)
+    render json: { user: UserSerializer.new(@user), jwt: @token }
   end
 
   # POST /users

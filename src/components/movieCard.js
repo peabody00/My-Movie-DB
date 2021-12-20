@@ -6,7 +6,7 @@ import { updateUserMovie } from '../actions/userMovieActions'
 import { defaultUserMovie } from '../actions/userMovieActions'
 
 const posterURL = 'https://image.tmdb.org/t/p/w500'
-const backdropURL = 'https://image.tmdb.org/t/p/original'
+// const backdropURL = 'https://image.tmdb.org/t/p/original'
 
 class MovieCard extends Component {
         

@@ -2,6 +2,11 @@ export function setCurrentUser(userData) {
     return {type: "SET_CURRENT_USER", userData: userData}
 }
 
+export function reloginUser(userData) {
+    return {type: "RELOGIN_USER", userData: userData}
+}
+
+
 export function updateUserStore(userData) {
     return {type: "UPDATE_CURRENT_USER_STORE", userData: userData}
 }

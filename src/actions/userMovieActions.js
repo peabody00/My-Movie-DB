@@ -25,9 +25,9 @@ export function userMovieUpdate(userMovieData) {
     }
 }
 
-const getUserMovie = () => {
-    return {type: 'GET_USERSMOVIE', }
-}
+// const getUserMovie = () => {
+//     return {type: 'GET_USERSMOVIE', }
+// }
 
 export function fetchUserMovie(userID, movieID) {
     return (dispatch) => {
